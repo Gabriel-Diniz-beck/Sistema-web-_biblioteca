@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro Usuário</title>
+  <style>
+    /* ===== Reset básico ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Corpo da página ===== */
+    body {
+      font-family: "Segoe UI", sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+    }
+
+    /* ===== Container do formulário ===== */
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px 30px;
+      border-radius: 20px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+      animation: slideDown 1.2s ease forwards;
+    }
+
+    /* ===== Formulário ===== */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+      transform: scale(1.05);
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: white;
+      color: #2575fc;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #2575fc;
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    }
+
+    /* ===== Animações ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Cadastro de Usuário</h2>
+    <form method="post" action="/cadastro_usuario">
+      <input name="nome" placeholder="Nome" required>
+      <input name="usuario" placeholder="Usuário" required>
+      <input name="senha" type="password" placeholder="Senha" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</body>
+</html>

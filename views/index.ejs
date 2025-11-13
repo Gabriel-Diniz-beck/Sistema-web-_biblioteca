@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title> Biblioteca</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      animation: slideDown 1.2s ease forwards;
+    }
+
+    button {
+      background: white;
+      color: #2575fc;
+      border: none;
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #2575fc;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Bem-vindo à Biblioteca Online</h1>
+    <a href="login_usuario"><button>Login Usuário</button></a>
+    <a href="/cadastro_usuario"><button>Cadastro Usuário</button></a>
+    <a href="login_admin"><button>Login Admin</button></a>
+  </div>
+</body>
+</html>

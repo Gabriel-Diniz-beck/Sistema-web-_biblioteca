@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Empréstimos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #1f4037, #99f2c8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      width: 900px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+      animation: slideDown 1.2s ease forwards;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: left;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .info {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .status {
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .entregue {
+      background: #4caf50;
+      color: white;
+    }
+
+    .pendente {
+      background: #e53935;
+      color: white;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+    }
+
+    button {
+      background: white;
+      color: #1f4037;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #1f4037;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📖 Lista de Empréstimos</h2>
+    <div class="grid">
+      <% emprestimos.forEach(function(e) { %>
+        <div class="card">
+          <div class="info"><b>Usuário:</b> <%= e.usuario %></div>
+          <div class="info"><b>Livro:</b> <%= e.titulo %></div>
+          <div class="info"><b>Data:</b> <%= e.data %></div>
+          <% if (e.entregue) { %>
+            <span class="status entregue">✅ Entregue</span>
+          <% } else { %>
+            <span class="status pendente">❌ Pendente</span>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>
+    <div class="back-btn">
+      <a href="/admin_area"><button>⬅ Voltar</button></a>
+    </div>
+  </div>
+</body>
+</html>

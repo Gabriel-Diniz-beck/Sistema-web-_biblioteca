@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Minhas Mensagens</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #2b5876, #4e4376);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      width: 800px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      animation: slideDown 1s ease forwards;
+    }
+
+    .mensagem-card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .mensagem-card:hover {
+      transform: scale(1.03);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .user-msg {
+      font-weight: bold;
+      color: #ffeaa7;
+      margin-bottom: 8px;
+    }
+
+    .admin-resp {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      font-style: italic;
+      color: #dfe6e9;
+    }
+
+    .pendente {
+      margin-top: 10px;
+      color: #fab1a0;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      background: white;
+      color: #2b5876;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #2b5876;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>💬 Suas Mensagens</h2>
+     <% mensagens.forEach(m => { %>
+      <div class="mensagem-card">
+        <div class="user-msg">📨 Sua mensagem:</div>
+        <div><%= m.mensagem %></div>
+
+        <% if (m.resposta) { %>
+          <div class="admin-resp">✅ Resposta do admin: <%= m.resposta %></div>
+        <% } else { %>
+          <div class="pendente">⏳ Aguardando resposta...</div>
+        <% } %>
+      </div>
+    <% }) %>
+
+    <div class="back-btn">
+      <a href="/usuario_area"><button>⬅ Voltar</button></a>
+    </div>
+  </div>
+</body>
+</html>
