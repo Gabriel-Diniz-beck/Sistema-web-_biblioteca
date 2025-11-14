@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Área do Usuário</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      width: 400px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      animation: slideDown 1s ease forwards;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    ul li a {
+      display: block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px;
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    ul li a:hover {
+      background: white;
+      color: #0072ff;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>👋 Bem-vindo, <%= usuario.nome %></h2>
+
+    <ul>
+      <li><a href="/pegar_livro">📚 Pegar Livro</a></li>
+      <li><a href="/status_usuario">📖 Meus Empréstimos</a></li>
+      <li><a href="/formulario">✉️ Enviar Mensagem ao Admin</a></li>
+      <li><a href="/minhas_mensagens">📩 Minhas Mensagens</a></li>
+      <li><a href="/logout">🚪 Logout</a></li>
+    </ul>
+  </div>
+</body>
+</html>

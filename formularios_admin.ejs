@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Mensagens de Usuários</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #1d2b64, #f8cdda);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      width: 900px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+      text-align: center;
+      animation: slideDown 1s ease forwards;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: left;
+      transition: transform 0.3s ease, background 0.3s ease;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .user-info {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .email {
+      font-size: 0.9rem;
+      color: #ffe;
+      margin-bottom: 10px;
+    }
+
+    .mensagem {
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    textarea {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 0.95rem;
+      resize: none;
+      transition: all 0.3s ease;
+    }
+
+    textarea:focus {
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+      outline: none;
+      transform: scale(1.02);
+    }
+
+    button {
+      margin-top: 10px;
+      background: white;
+      color: #1d2b64;
+      border: none;
+      padding: 8px 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #1d2b64;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    .back-btn {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📬 Mensagens Recebidas</h2>
+    <div class="grid">
+       <div class="grid">
+      <% formularios.forEach((f, index) => { %>
+        <div class="card">
+
+          <div class="user-info"><%= f.nome %></div>
+          <div class="email"><%= f.email %></div>
+          <div class="mensagem">“<%= f.mensagem %>”</div>
+
+          <% if (f.resposta) { %>
+            <p><b>Resposta do admin:</b> <%= f.resposta %></p>
+
+          <% } else { %>
+            <form method="post" action="/responder/<%= index %>">
+              <textarea name="resposta" placeholder="Digite a resposta..." required></textarea>
+              <button type="submit">Enviar Resposta</button>
+            </form>
+          <% } %>
+
+        </div>
+      <% }) %>
+    </div>
+
+    <div class="back-btn">
+      <a href="/admin_area"><button>⬅ Voltar</button></a>
+    </div>
+  </div>
+</body>
+</html>
