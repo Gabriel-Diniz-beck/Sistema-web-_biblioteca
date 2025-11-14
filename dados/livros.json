@@ -1,1 +1,82 @@
-[]
+[
+    {
+        "titulo": "Dom Casmurro",
+        "autor": "Machado de Assis"
+    },
+    {
+        "titulo": "Memórias Póstumas de Brás Cubas",
+        "autor": "Machado de Assis"
+    },
+    {
+        "titulo": "O Cortiço",
+        "autor": "Aluísio Azevedo"
+    },
+    {
+        "titulo": "Grande Sertão: Veredas",
+        "autor": "João Guimarães Rosa"
+    },
+    {
+        "titulo": "Capitães da Areia",
+        "autor": "Jorge Amado"
+    },
+    {
+        "titulo": "1984",
+        "autor": "George Orwell"
+    },
+    {
+        "titulo": "O Senhor dos Anéis",
+        "autor": "J.R.R. Tolkien"
+    },
+    {
+        "titulo": "Orgulho e Preconceito",
+        "autor": "Jane Austen"
+    },
+    {
+        "titulo": "O Pequeno Príncipe",
+        "autor": "Antoine de Saint-Exupéry"
+    },
+    {
+        "titulo": "Cem Anos de Solidão",
+        "autor": "Gabriel García Márquez"
+    },
+    {
+        "titulo": "A Culpa é das Estrelas",
+        "autor": "John Green"
+    },
+    {
+        "titulo": "Jogos Vorazes",
+        "autor": "Suzanne Collins"
+    },
+    {
+        "titulo": "O Código Da Vinci",
+        "autor": "Dan Brown"
+    },
+    {
+        "titulo": "Harry Potter e a Pedra Filosofal",
+        "autor": "J.K. Rowling"
+    },
+    {
+        "titulo": "O Hobbit",
+        "autor": "J.R.R. Tolkien"
+    },
+    {
+        "titulo": "O Príncipe",
+        "autor": "Nicolau Maquiavel"
+    },
+    {
+        "titulo": "A República",
+        "autor": "Platão"
+    },
+    {
+        "titulo": "Sapiens: Uma Breve História da Humanidade",
+        "autor": "Yuval Noah Harari"
+    },
+    {
+        "titulo": "O Mundo de Sofia",
+        "autor": "Jostein Gaarder"
+    },
+    {
+        "titulo": "Além do Bem e do Mal",
+        "autor": "Friedrich Nietzsche"
+    }
+]

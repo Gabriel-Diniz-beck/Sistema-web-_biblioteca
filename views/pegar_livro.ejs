@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Escolher Livro</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="/style.css">
   <style>
     body {
       margin: 0;
@@ -111,7 +111,8 @@
 <body>
   <div class="container">
     <h2>📚 Livros Disponíveis</h2>
-     <div class="grid">
+
+    <div class="grid">
       <% livros.forEach(l => { %>
         <div class="card">
           <div>
@@ -119,9 +120,10 @@
             <small><%= l.autor %></small>
           </div>
 
-          <a href="/emprestar_livro?titulo=<%= l.titulo %>">
+          <a href="/pegar_livro/emprestar?titulo=<%= l.titulo %>">
             <button>📖 Pegar</button>
           </a>
+
         </div>
       <% }) %>
     </div>

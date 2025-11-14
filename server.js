@@ -46,7 +46,7 @@ app.post("/formulario", async (req, res) => {
   const forms = await carregarArquivo("formularios.json");
   forms.push({ nome, email, mensagem, resposta: "" });
   await salvarArquivo("formularios.json", forms);
-  res.send("Mensagem enviada!");
+  res.render("formulario_sucesso");
 });
 
 // ---------- ROTAS USUÁRIO ----------
