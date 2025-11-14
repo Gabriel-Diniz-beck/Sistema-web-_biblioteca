@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Formulário de Contato</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="/style.css">
   <style>
     body {
       margin: 0;
@@ -77,28 +77,17 @@
       transform: scale(1.1);
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>📩 Formulário de Contato</h2>
-    <form method="post" action="/">
+    <form method="post" action="/formulario">
       <input type="text" name="nome" placeholder="Seu nome" required>
       <input type="email" name="email" placeholder="Seu email" required>
       <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
       <button type="submit">Enviar</button>
     </form>
-    
   </div>
 </body>
 </html>

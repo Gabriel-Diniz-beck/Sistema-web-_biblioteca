@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Erro 404</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="/style.css">
   <style>
     body {
       margin: 0;
@@ -71,8 +71,9 @@
   <div class="container">
     <h1>🚫 404 - Página não encontrada!</h1>
     <p>Ops! O link que você acessou não existe ou foi movido.</p>
-    <a href="/index"><button>⬅ Voltar para a Home</button></a>
+
+    <!-- LINK CORRETO -->
+    <a href="/"><button>⬅ Voltar para a Home</button></a>
   </div>
 </body>
 </html>
-  
